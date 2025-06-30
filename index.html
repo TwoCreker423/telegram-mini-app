@@ -3,16 +3,17 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Интерактивная страница</title>
+    <title>Telegram Mini App</title>
     <link rel="stylesheet" href="static/styles.css">
+    <script src="static/script.js"></script>
 </head>
 <body>
     <div class="background">
-        <img src="static/picture/theme_pic1.png" class="wave-image wave-1" alt="Theme Image 1">
-        <img src="static/picture/theme_pic1.png" class="wave-image wave-2" alt="Theme Image 2">
-        <img src="static/picture/theme_pic1.png" class="wave-image wave-3" alt="Theme Image 3">
-        <img src="static/picture/theme_pic1.png" class="wave-image wave-4" alt="Theme Image 4">
-        <img src="static/picture/theme_pic1.png" class="wave-image wave-5" alt="Theme Image 5">
+        <img src="static/picture/theme_pic1.png" class="wave-image wave-1">
+        <img src="static/picture/theme_pic1.png" class="wave-image wave-2">
+        <img src="static/picture/theme_pic1.png" class="wave-image wave-3">
+        <img src="static/picture/theme_pic1.png" class="wave-image wave-4">
+        <img src="static/picture/theme_pic1.png" class="wave-image wave-5">
     </div>
     <div class="main-container">
         <div class="text-block">
@@ -23,31 +24,28 @@
         </div>
         <div class="input-block">
             <input type="text" id="user-input" placeholder="Введите ваш ответ">
+            <input type="hidden" id="user-id" value="">
         </div>
         <button class="submit-button" onclick="checkAnswer()">Завершить задание</button>
     </div>
-
-    <!-- Модальное окно для правильного ответа -->
-    <div class="result-modal" id="success-modal">
+    <div id="success-modal" class="result-modal">
         <div class="result-content">
-            <p>Поздравляем! Ваш ответ правильный.</p>
+            Поздравляем! Ваш ответ правильный.
             <button class="close-button" onclick="closeModal('success-modal')">Закрыть</button>
         </div>
     </div>
-
-    <!-- Модальное окно для неверного ответа -->
-    <div class="result-modal" id="error-modal">
+    <div id="error-modal" class="result-modal">
         <div class="result-content">
-            <p>Ответ неверный. Попробуйте снова!</p>
+            Ответ неверный. Попробуйте снова!
             <button class="close-button" onclick="closeModal('error-modal')">Закрыть</button>
         </div>
     </div>
-
-    <!-- Аудиофайлы -->
-    <audio id="success-sound" src="static/sound/stage_complete.mp3" preload="auto"></audio>
-    <audio id="error-sound" src="static/sound/wrong.mp3" preload="auto"></audio>
-    <audio id="click-sound" src="static/sound/click.mp3" preload="auto"></audio>
-
-    <script src="static/script.js"></script>
+    <audio id="success-sound" src="static/sound/stage_complete.mp3"></audio>
+    <audio id="error-sound" src="static/sound/wrong.mp3"></audio>
+    <audio id="click-sound" src="static/sound/click.mp3"></audio>
+    <script>
+        // Set user ID from Telegram Web App
+        document.getElementById('user-id').value = window.Telegram?.WebApp?.initDataUnsafe?.user?.id || 'unknown';
+    </script>
 </body>
 </html>
