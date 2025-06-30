@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Интерактивная страница</title>
+    <link rel="stylesheet" href="static/styles.css">
+</head>
+<body>
+    <div class="background">
+        <img src="static/picture/theme_pic1.png" class="wave-image wave-1" alt="Theme Image 1">
+        <img src="static/picture/theme_pic1.png" class="wave-image wave-2" alt="Theme Image 2">
+        <img src="static/picture/theme_pic1.png" class="wave-image wave-3" alt="Theme Image 3">
+        <img src="static/picture/theme_pic1.png" class="wave-image wave-4" alt="Theme Image 4">
+        <img src="static/picture/theme_pic1.png" class="wave-image wave-5" alt="Theme Image 5">
+    </div>
+    <div class="main-container">
+        <div class="text-block">
+            Это пример текста внутри основного блока. Здесь вы можете разместить любое описание или инструкцию.
+        </div>
+        <div class="image-block">
+            <img src="static/picture/gold.jpg" alt="Пример изображения">
+        </div>
+        <div class="input-block">
+            <input type="text" id="user-input" placeholder="Введите ваш ответ">
+        </div>
+        <button class="submit-button" onclick="checkAnswer()">Завершить задание</button>
+    </div>
+
+    <!-- Модальное окно для правильного ответа -->
+    <div class="result-modal" id="success-modal">
+        <div class="result-content">
+            <p>Поздравляем! Ваш ответ правильный.</p>
+            <button class="close-button" onclick="closeModal('success-modal')">Закрыть</button>
+        </div>
+    </div>
+
+    <!-- Модальное окно для неверного ответа -->
+    <div class="result-modal" id="error-modal">
+        <div class="result-content">
+            <p>Ответ неверный. Попробуйте снова!</p>
+            <button class="close-button" onclick="closeModal('error-modal')">Закрыть</button>
+        </div>
+    </div>
+
+    <!-- Аудиофайлы -->
+    <audio id="success-sound" src="static/sound/stage_complete.mp3" preload="auto"></audio>
+    <audio id="error-sound" src="static/sound/wrong.mp3" preload="auto"></audio>
+    <audio id="click-sound" src="static/sound/click.mp3" preload="auto"></audio>
+
+    <script src="static/script.js"></script>
+</body>
+</html>

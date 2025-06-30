@@ -1,0 +1,268 @@
+body {
+    margin: 0;
+    font-family: 'Arial', 'Times New Roman', sans-serif;
+    background-color: #1a1a1a; /* Темный фон 2025 */
+    overflow-x: hidden;
+    overflow-y: hidden; /* Prevent page scrolling */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh; /* Центрирование по вертикали */
+}
+
+/* Фоновая текстура */
+.background {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    background: #000080; /* Однотонный темно-синий фон в стиле 2000-х */
+}
+
+/* Стили для анимированных изображений */
+.wave-image {
+    position: absolute;
+    width: 100px; /* Укажите подходящий размер изображения */
+    height: auto;
+    z-index: -1;
+    animation: waveMove 10s linear infinite;
+}
+
+.wave-1 { top: 5%; animation-delay: 0s; }
+.wave-2 { top: 24%; animation-delay: -2s; }
+.wave-3 { top: 43%; animation-delay: -4s; }
+.wave-4 { top: 67%; animation-delay: -6s; }
+.wave-5 { top: 90%; animation-delay: -8s; }
+
+/* Анимация синусоидального движения */
+@keyframes waveMove {
+    0% {
+        transform: translateX(-100px) translateY(0);
+    }
+    50% {
+        transform: translateX(calc(100vw + 100px)) translateY(20px);
+    }
+    100% {
+        transform: translateX(-100px) translateY(0);
+    }
+}
+
+#background-video, #background-gif {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* Основной блок */
+.main-container {
+    width: 80%;
+    max-width: 900px;
+    max-height: 90vh; /* Ограничение высоты для предотвращения скроллинга */
+    background: rgba(255, 255, 255, 0.85); /* Полупрозрачный белый фон */
+    border: 2px solid #000080; /* Рамка в стиле 2000-х */
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3); /* Современная тень */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    box-sizing: border-box; /* Включаем границы и отступы в размеры */
+    overflow-y: auto; /* Внутренний скролл, если содержимое все же превышает */
+}
+
+/* Сохраняем эффект поднятия при наведении */
+.main-container:hover {
+    transform: translateY(-5px); /* Современный эффект поднятия */
+    box-shadow: 0 12px 32px rgba(0, 0, 0, 0.4);
+}
+
+/* Блок текста */
+.text-block {
+    font-size: 1.3em;
+    color: #333;
+    text-align: center;
+    margin-bottom: 20px;
+    padding: 15px;
+    line-height: 1.6;
+}
+
+/* Блок с изображением */
+.image-block {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.image-block img {
+    max-width: 100%; /* Ограничение по ширине */
+    max-height: 50vh; /* Ограничение по высоте для предотвращения переполнения */
+    height: auto; /* Сохранение пропорций */
+    border: 3px solid #000080; /* Рамка в стиле 2000-х */
+    transition: transform 0.3s ease;
+}
+
+/* Эффект увеличения при наведении */
+.image-block img:hover {
+    transform: scale(1.05); /* Современный эффект увеличения */
+}
+
+/* Блок ввода текста */
+.input-block {
+    margin: 20px auto; /* Центрирование и отступы сверху/снизу */
+    width: 90%; /* Одинаковая ширина с кнопкой */
+    padding: 10px;
+}
+
+.input-block input {
+    width: 90%; /* Полная ширина внутри блока */
+    padding: 12px;
+    font-size: 1em;
+    border: 2px solid #000080;
+    background-color: #f0f0f0; /* Фон 2000-х */
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.input-block input:focus {
+    border-color: #1e90ff;
+    box-shadow: 0 0 8px rgba(30, 144, 255, 0.5); /* Современный эффект фокуса */
+    outline: none;
+}
+
+/* Кнопка */
+.submit-button {
+    width: 25%; /* Одинаковая ширина с input-block */
+    margin: 20px auto; /* Центрирование и отступы сверху/снизу */
+    padding: 12px;
+    font-size: 1.1em;
+    background: linear-gradient(to bottom, #000080, #1e90ff); /* Градиент 2000-х + 2025 */
+    color: white;
+    border: 3px outset #0000ff; /* Выпуклый эффект 2000-х */
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: block; /* Для корректного центрирования */
+}
+
+.submit-button:hover {
+    border: 3px inset #0000ff;
+    background: linear-gradient(to bottom, #1e90ff, #000080);
+    transform: translateY(2px);
+}
+
+/* Модальное окно */
+.result-modal {
+    display: none; /* Скрыто по умолчанию */
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.7);
+    z-index: 100;
+    justify-content: center;
+    align-items: center;
+}
+
+.result-content {
+    background: #c0c0c0; /* Серый фон 2000-х */
+    border: 2px solid #000080;
+    padding: 30px;
+    max-width: 90%;
+    max-height: 80%;
+    overflow-y: auto;
+    text-align: center;
+    font-size: 1.2em;
+    box-shadow: 0 12px 32px rgba(0, 0, 0, 0.5); /* Современная тень */
+    animation: fadeIn 0.3s ease;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: scale(0.9); }
+    to { opacity: 1; transform: scale(1); }
+}
+
+/* Кнопка закрытия */
+.close-button {
+    margin-top: 20px;
+    padding: 10px 20px;
+    font-size: 1em;
+    background: linear-gradient(to bottom, #ff0000, #ff3333); /* Красный градиент */
+    color: white;
+    border: 3px outset #ff3333;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.close-button:hover {
+    border: 3px inset #ff3333;
+    background: linear-gradient(to bottom, #ff3333, #ff0000);
+    transform: translateY(2px);
+}
+
+/* Адаптивность */
+@media (max-width: 768px) {
+    .main-container {
+        width: 90%;
+        margin: 15px auto;
+        max-height: 85vh; /* Уменьшаем максимальную высоту для средних экранов */
+    }
+
+    .text-block {
+        font-size: 1.1em;
+        padding: 10px;
+    }
+
+    .submit-button, .close-button {
+        font-size: 1em;
+        padding: 10px;
+    }
+
+    .result-content {
+        font-size: 1.1em;
+        padding: 20px;
+    }
+
+    .wave-image {
+        width: 80px; /* Уменьшаем размер изображений для средних экранов */
+    }
+
+    .image-block img {
+        max-height: 40vh; /* Уменьшаем максимальную высоту изображения */
+    }
+}
+
+@media (max-width: 480px) {
+    .main-container {
+        width: 95%;
+        margin: 10px auto;
+        max-height: 80vh; /* Уменьшаем максимальную высоту для маленьких экранов */
+    }
+
+    .text-block {
+        font-size: 1em;
+    }
+
+    .input-block {
+        width: 95%; /* Адаптация ширины для маленьких экранов */
+    }
+
+    .input-block input {
+        font-size: 0.9em;
+        padding: 10px;
+    }
+
+    .submit-button, .close-button {
+        font-size: 0.9em;
+        padding: 8px;
+        width: 45%; /* Адаптация ширины для маленьких экранов */
+    }
+
+    .result-content {
+        font-size: 1em;
+        padding: 15px;
+    }
+
+    .wave-image {
+        width: 60px; /* Уменьшаем размер изображений для маленьких экранов */
+    }
+
+    .image-block img {
+        max-height: 30vh; /* Уменьшаем максимальную высоту изображения для маленьких экранов */
+    }
+}
