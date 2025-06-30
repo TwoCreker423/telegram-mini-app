@@ -40,12 +40,20 @@
             <button class="close-button" onclick="closeModal('error-modal')">Закрыть</button>
         </div>
     </div>
+    <div id="welcome-modal" class="result-modal">
+        <div class="result-content">
+            Добро пожаловать, <span id="welcome-username">Гость</span>!
+            <button class="close-button" onclick="closeModal('welcome-modal')">Закрыть</button>
+        </div>
+    </div>
     <audio id="success-sound" src="static/sound/stage_complete.mp3"></audio>
     <audio id="error-sound" src="static/sound/wrong.mp3"></audio>
     <audio id="click-sound" src="static/sound/click.mp3"></audio>
     <script>
-        // Set user ID from Telegram Web App
-        document.getElementById('user-id').value = window.Telegram?.WebApp?.initDataUnsafe?.user?.id || 'unknown';
+        // Set user ID and username from Telegram Web App
+        const user = window.Telegram?.WebApp?.initDataUnsafe?.user || {};
+        document.getElementById('user-id').value = user.id || 'unknown';
+        document.getElementById('welcome-username').textContent = user.username ? `@${user.username}` : user.first_name || 'Гость';
     </script>
 </body>
 </html>

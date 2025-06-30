@@ -42,10 +42,11 @@ function closeModal(modalId) {
     document.getElementById(modalId).style.display = 'none';
 }
 
-// Hide modals on load
+// Hide modals on load and show welcome modal
 document.addEventListener('DOMContentLoaded', () => {
     document.getElementById('success-modal').style.display = 'none';
     document.getElementById('error-modal').style.display = 'none';
+    document.getElementById('welcome-modal').style.display = 'flex';
     
     // Preload sounds
     document.getElementById('success-sound').load();
