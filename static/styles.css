@@ -97,10 +97,6 @@ body {
     -webkit-touch-callout: none; /* Для iOS */
 }
 
-.text-block span {
-    display: none; /* Hide all text spans by default */
-}
-
 /* Блок с изображением */
 .image-block {
     text-align: center;
@@ -116,45 +112,11 @@ body {
     transition: transform 0.3s ease;
     display: none; /* Hide all images by default */
     margin: 0 auto; /* Центрирование изображения */
-    user-select: none; /* Запрещаем выделение изображения */
-    -webkit-user-select: none; /* Для Safari */
-    -moz-user-select: none; /* Для Firefox */
-    -ms-user-select: none; /* Для Edge */
-    -webkit-user-drag: none; /* Запрещаем перетаскивание в WebKit */
-    pointer-events: none; /* Отключаем взаимодействие с изображением */
 }
 
 /* Эффект увеличения при наведении */
 .image-block img:hover {
     transform: scale(1.05); /* Современный эффект увеличения */
-}
-
-/* Контейнер для кнопки скачивания */
-.download-button-container {
-    text-align: center;
-    margin-bottom: 20px;
-}
-
-/* Кнопка скачивания */
-.download-button {
-    width: 25%; /* Одинаковая ширина с submit-button */
-    margin: 0 auto; /* Центрирование */
-    padding: 12px;
-    font-size: 1.1em;
-    background: linear-gradient(to bottom, #008000, #00ff00); /* Зеленый градиент для кнопки скачивания */
-    color: white;
-    border: 3px outset #00ff00; /* Выпуклый эффект 2000-х */
-    cursor: pointer;
-    transition: all 0.3s ease;
-    display: block; /* Для корректного центрирования */
-    text-decoration: none; /* Убираем подчеркивание для ссылки */
-    font-family: 'Arial', 'Times New Roman', sans-serif;
-}
-
-.download-button:hover {
-    border: 3px inset #00ff00;
-    background: linear-gradient(to bottom, #00ff00, #008000);
-    transform: translateY(2px);
 }
 
 /* Блок ввода текста */
