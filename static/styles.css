@@ -97,10 +97,14 @@ body {
     -webkit-touch-callout: none; /* Для iOS */
 }
 
+.text-block span {
+    display: none; /* Hide all text spans by default */
+}
+
 /* Блок с изображением */
 .image-block {
     text-align: center;
-    margin: 20px 0;
+    margin-bottom: 20px;
 }
 
 .image-block img {
@@ -109,7 +113,6 @@ body {
     height: auto; /* Сохранение пропорций */
     border: 3px solid #000080; /* Рамка в стиле 2000-х */
     transition: transform 0.3s ease;
-    display: none;
 }
 
 /* Эффект увеличения при наведении */

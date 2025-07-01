@@ -58,6 +58,7 @@ document.addEventListener('DOMContentLoaded', async () => {
     const puzzleNumber = parseInt(document.getElementById('puzzle-number').value);
     const textBlock = document.querySelector('.text-block');
     const imageBlock = document.querySelector('.image-block');
+    const allTextSpans = textBlock.querySelectorAll('span');
     const allImages = imageBlock.querySelectorAll('img');
 
     try {
@@ -65,69 +66,82 @@ document.addEventListener('DOMContentLoaded', async () => {
         const data = await response.json();
         const userAnswers = data.users[userId]?.answers || [];
         const puzzleData = userAnswers[puzzleNumber - 1] || {};
-        
-        // Define answer-to-image mappings for each puzzle
-        const imageMappings = {
+
+        // Define answer-to-image and answer-to-text mappings for each puzzle
+        const mappings = {
             1: {
-                'пиво': 'puzzle1-pic1',
-                'водка': 'puzzle1-pic2',
-                'вино': 'puzzle1-pic3',
-                'коньяк': 'puzzle1-pic4',
-                'виски': 'puzzle1-pic5'
+                'пиво': { image: 'puzzle1-pic1', text: 'puzzle1-text1' },
+                'водка': { image: 'puzzle1-pic2', text: 'puzzle1-text2' },
+                'вино': { image: 'puzzle1-pic3', text: 'puzzle1-text3' },
+                'коньяк': { image: 'puzzle1-pic4', text: 'puzzle1-text4' },
+                'виски': { image: 'puzzle1-pic5', text: 'puzzle1-text5' }
             },
             2: {
-                'банан': 'puzzle2-pic1',
-                'яблоко': 'puzzle2-pic2',
-                'земляника': 'puzzle2-pic3',
-                'малина': 'puzzle2-pic4',
-                'ананас': 'puzzle2-pic5'
+                'банан': { image: 'puzzle2-pic1', text: 'puzzle2-text1' },
+                'яблоко': { image: 'puzzle2-pic2', text: 'puzzle2-text2' },
+                'земляника': { image: 'puzzle2-pic3', text: 'puzzle2-text3' },
+                'малина': { image: 'puzzle2-pic4', text: 'puzzle2-text4' },
+                'ананас': { image: 'puzzle2-pic5', text: 'puzzle2-text5' }
             },
             3: {
-                'квадрат': 'puzzle3-pic1',
-                'круг': 'puzzle3-pic2',
-                'треугольник': 'puzzle3-pic3',
-                'пятиугольник': 'puzzle3-pic4',
-                'восмиугольник': 'puzzle3-pic5'
+                'квадрат': { image: 'puzzle3-pic1', text: 'puzzle3-text1' },
+                'круг': { image: 'puzzle3-pic2', text: 'puzzle3-text2' },
+                'треугольник': { image: 'puzzle3-pic3', text: 'puzzle3-text3' },
+                'пятиугольник': { image: 'puzzle3-pic4', text: 'puzzle3-text4' },
+                'восмиугольник': { image: 'puzzle3-pic5', text: 'puzzle3-text5' }
             },
             4: {
-                'дождь': 'puzzle4-pic1',
-                'снег': 'puzzle4-pic2',
-                'жара': 'puzzle4-pic3',
-                'град': 'puzzle4-pic4',
-                'ветер': 'puzzle4-pic5'
+                'дождь': { image: 'puzzle4-pic1', text: 'puzzle4-text1' },
+                'снег': { image: 'puzzle4-pic2', text: 'puzzle4-text2' },
+                'жара': { image: 'puzzle4-pic3', text: 'puzzle4-text3' },
+                'град': { image: 'puzzle4-pic4', text: 'puzzle4-text4' },
+                'ветер': { image: 'puzzle4-pic5', text: 'puzzle4-text5' }
             },
             5: {
-                'король': 'puzzle5-pic1',
-                'туз': 'puzzle5-pic2',
-                'валлет': 'puzzle5-pic3',
-                'десять': 'puzzle5-pic4',
-                'дама': 'puzzle5-pic5'
+                'король': { image: 'puzzle5-pic1', text: 'puzzle5-text1' },
+                'туз': { image: 'puzzle5-pic2', text: 'puzzle5-text2' },
+                'валлет': { image: 'puzzle5-pic3', text: 'puzzle5-text3' },
+                'десять': { image: 'puzzle5-pic4', text: 'puzzle5-text4' },
+                'дама': { image: 'puzzle5-pic5', text: 'puzzle5-text5' }
             }
         };
 
-        // Hide all images
+        // Hide all text spans and images
+        allTextSpans.forEach(span => span.style.display = 'none');
         allImages.forEach(img => img.style.display = 'none');
 
-        // Show the correct image and set text
-        if (puzzleData.answer && puzzleData.text) {
-            const imageId = imageMappings[puzzleNumber][puzzleData.answer];
-            if (imageId) {
-                const targetImage = document.getElementById(imageId);
+        // Show the correct text and image
+        if (puzzleData.answer) {
+            const mapping = mappings[puzzleNumber][puzzleData.answer];
+            if (mapping) {
+                const targetText = document.getElementById(mapping.text);
+                const targetImage = document.getElementById(mapping.image);
+                if (targetText) {
+                    targetText.style.display = 'block';
+                }
                 if (targetImage) {
                     targetImage.style.display = 'block';
                 }
+            } else {
+                // Fallback to default
+                const fallbackText = document.getElementById(`puzzle${puzzleNumber}-text1`);
+                const fallbackImage = document.getElementById(`puzzle${puzzleNumber}-pic1`);
+                if (fallbackText) fallbackText.style.display = 'block';
+                if (fallbackImage) fallbackImage.style.display = 'block';
             }
-            textBlock.textContent = puzzleData.text;
         } else {
-            textBlock.textContent = `Это загадка ${puzzleNumber}. Введите правильный ответ для продолжения.`;
+            // Fallback to default
+            const fallbackText = document.getElementById(`puzzle${puzzleNumber}-text1`);
             const fallbackImage = document.getElementById(`puzzle${puzzleNumber}-pic1`);
-            if (fallbackImage) {
-                fallbackImage.style.display = 'block';
-            }
+            if (fallbackText) fallbackText.style.display = 'block';
+            if (fallbackImage) fallbackImage.style.display = 'block';
         }
     } catch (error) {
         console.error('Error loading puzzle data:', error);
-        textBlock.textContent = `Ошибка загрузки данных загадки ${puzzleNumber}.`;
+        const fallbackText = document.getElementById(`puzzle${puzzleNumber}-text1`);
+        const fallbackImage = document.getElementById(`puzzle${puzzleNumber}-pic1`);
+        if (fallbackText) fallbackText.style.display = 'block';
+        if (fallbackImage) fallbackImage.style.display = 'block';
     }
 
     if (window.Telegram?.WebApp) {

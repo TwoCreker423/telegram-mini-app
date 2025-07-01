@@ -6,31 +6,26 @@
         {
           "answer": "пиво",
           "next_stage": "чипсы",
-          "image": "static/picture/puzzle1_pic1.jpeg",
           "text": "хмель и солод"
         },
         {
           "answer": "банан",
           "next_stage": "желтый",
-          "image": "static/picture/puzzle2_pic1.jpeg",
           "text": "тропический фрукт"
         },
         {
           "answer": "квадрат",
           "next_stage": "четыре",
-          "image": "static/picture/puzzle3_pic1.jpeg",
           "text": "четыре равные стороны"
         },
         {
           "answer": "дождь",
           "next_stage": "зонт",
-          "image": "static/picture/puzzle4_pic1.jpeg",
           "text": "капли с неба"
         },
         {
           "answer": "король",
           "next_stage": "4",
-          "image": "static/picture/puzzle5_pic1.jpeg",
           "text": "владыка карт"
         }
       ],
@@ -42,31 +37,26 @@
         {
           "answer": "вино",
           "next_stage": "сыр",
-          "image": "static/picture/puzzle1_pic3.jpeg",
           "text": "виноград и спирт"
         },
         {
           "answer": "земляника",
           "next_stage": "красный",
-          "image": "static/picture/puzzle2_pic3.jpeg",
           "text": "лесная ягода"
         },
         {
           "answer": "треугольник",
           "next_stage": "три",
-          "image": "static/picture/puzzle3_pic3.jpeg",
           "text": "три стороны"
         },
         {
           "answer": "жара",
           "next_stage": "майка",
-          "image": "static/picture/puzzle4_pic3.jpeg",
           "text": "палящее солнце"
         },
         {
           "answer": "валлет",
           "next_stage": "2",
-          "image": "static/picture/puzzle5_pic3.jpeg",
           "text": "младший вельможа"
         }
       ],
@@ -78,31 +68,26 @@
         {
           "answer": "пиво",
           "next_stage": "чипсы",
-          "image": "static/picture/puzzle1_pic1.jpeg",
           "text": "хмель и солод"
         },
         {
           "answer": "банан",
           "next_stage": "желтый",
-          "image": "static/picture/puzzle2_pic1.jpeg",
           "text": "тропический фрукт"
         },
         {
           "answer": "квадрат",
           "next_stage": "четыре",
-          "image": "static/picture/puzzle3_pic1.jpeg",
           "text": "четыре равные стороны"
         },
         {
           "answer": "дождь",
           "next_stage": "зонт",
-          "image": "static/picture/puzzle4_pic1.jpeg",
           "text": "капли с неба"
         },
         {
           "answer": "король",
           "next_stage": "4",
-          "image": "static/picture/puzzle5_pic1.jpeg",
           "text": "владыка карт"
         }
       ],
@@ -115,31 +100,26 @@
         {
           "answer": "пиво",
           "next_stage": "чипсы",
-          "image": "static/picture/puzzle1_pic1.jpeg",
           "text": "хмель и солод"
         },
         {
           "answer": "водка",
           "next_stage": "сало",
-          "image": "static/picture/puzzle1_pic2.jpeg",
           "text": "спирт и вода"
         },
         {
           "answer": "вино",
           "next_stage": "сыр",
-          "image": "static/picture/puzzle1_pic3.jpeg",
           "text": "виноград и спирт"
         },
         {
           "answer": "коньяк",
           "next_stage": "шоколад",
-          "image": "static/picture/puzzle1_pic4.jpeg",
           "text": "конь плюс як"
         },
         {
           "answer": "виски",
           "next_stage": "сигара",
-          "image": "static/picture/puzzle1_pic5.jpeg",
           "text": "бочка и спирт"
         }
       ]
@@ -149,31 +129,26 @@
         {
           "answer": "банан",
           "next_stage": "желтый",
-          "image": "static/picture/puzzle2_pic1.jpeg",
           "text": "тропический фрукт"
         },
         {
           "answer": "яблоко",
           "next_stage": "зеленый",
-          "image": "static/picture/puzzle2_pic2.jpeg",
           "text": "садовый плод"
         },
         {
           "answer": "земляника",
           "next_stage": "красный",
-          "image": "static/picture/puzzle2_pic3.jpeg",
           "text": "лесная ягода"
         },
         {
           "answer": "малина",
           "next_stage": "фиолетовый",
-          "image": "static/picture/puzzle2_pic4.jpeg",
           "text": "сладкая ягода"
         },
         {
           "answer": "ананас",
           "next_stage": "коричневый",
-          "image": "static/picture/puzzle2_pic5.jpeg",
           "text": "экзотический вкус"
         }
       ]
@@ -183,31 +158,26 @@
         {
           "answer": "квадрат",
           "next_stage": "четыре",
-          "image": "static/picture/puzzle3_pic1.jpeg",
           "text": "четыре равные стороны"
         },
         {
           "answer": "круг",
           "next_stage": "ноль",
-          "image": "static/picture/puzzle3_pic2.jpeg",
           "text": "без углов"
         },
         {
           "answer": "треугольник",
           "next_stage": "три",
-          "image": "static/picture/puzzle3_pic3.jpeg",
           "text": "три стороны"
         },
         {
           "answer": "пятиугольник",
           "next_stage": "пять",
-          "image": "static/picture/puzzle3_pic4.jpeg",
           "text": "пять углов"
         },
         {
           "answer": "восмиугольник",
           "next_stage": "восемь",
-          "image": "static/picture/puzzle3_pic5.jpeg",
           "text": "восемь сторон"
         }
       ]
@@ -217,31 +187,26 @@
         {
           "answer": "дождь",
           "next_stage": "зонт",
-          "image": "static/picture/puzzle4_pic1.jpeg",
           "text": "капли с неба"
         },
         {
           "answer": "снег",
           "next_stage": "шапка",
-          "image": "static/picture/puzzle4_pic2.jpeg",
           "text": "холодные хлопья"
         },
         {
           "answer": "жара",
           "next_stage": "майка",
-          "image": "static/picture/puzzle4_pic3.jpeg",
           "text": "палящее солнце"
         },
         {
           "answer": "град",
           "next_stage": "каска",
-          "image": "static/picture/puzzle4_pic4.jpeg",
           "text": "ледяные шарики"
         },
         {
           "answer": "ветер",
           "next_stage": "куртка",
-          "image": "static/picture/puzzle4_pic5.jpeg",
           "text": "движение воздуха"
         }
       ]
@@ -251,31 +216,26 @@
         {
           "answer": "король",
           "next_stage": "4",
-          "image": "static/picture/puzzle5_pic1.jpeg",
           "text": "владыка карт"
         },
         {
           "answer": "туз",
           "next_stage": "11",
-          "image": "static/picture/puzzle5_pic2.jpeg",
           "text": "старшая карта"
         },
         {
           "answer": "валлет",
           "next_stage": "2",
-          "image": "static/picture/puzzle5_pic3.jpeg",
           "text": "младший вельможа"
         },
         {
           "answer": "десять",
           "next_stage": "10",
-          "image": "static/picture/puzzle5_pic4.jpeg",
           "text": "число в масти"
         },
         {
           "answer": "дама",
           "next_stage": "3",
-          "image": "static/picture/puzzle5_pic5.jpeg",
           "text": "королева карт"
         }
       ]
