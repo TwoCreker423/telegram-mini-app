@@ -35,6 +35,42 @@
         }
       ],
       "progress": 5
+    },
+    "6074091907": {
+      "username": "sh4t0hin",
+      "answers": [
+        {
+          "answer": "вино",
+          "next_stage": "сыр",
+          "image": "static/picture/puzzle1_pic3.jpeg",
+          "text": "виноград и спирт"
+        },
+        {
+          "answer": "земляника",
+          "next_stage": "красный",
+          "image": "static/picture/puzzle2_pic3.jpeg",
+          "text": "лесная ягода"
+        },
+        {
+          "answer": "треугольник",
+          "next_stage": "три",
+          "image": "static/picture/puzzle3_pic3.jpeg",
+          "text": "три стороны"
+        },
+        {
+          "answer": "жара",
+          "next_stage": "майка",
+          "image": "static/picture/puzzle4_pic3.jpeg",
+          "text": "палящее солнце"
+        },
+        {
+          "answer": "валлет",
+          "next_stage": "2",
+          "image": "static/picture/puzzle5_pic3.jpeg",
+          "text": "младший вельможа"
+        }
+      ],
+      "progress": 1
     }
   },
   "stages": {
