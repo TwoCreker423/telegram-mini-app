@@ -4,6 +4,7 @@ async function checkAnswer() {
     const puzzleNumber = parseInt(document.getElementById('puzzle-number').value);
     const successModal = document.getElementById('success-modal');
     const errorModal = document.getElementById('error-modal');
+    const nextStageSpan = document.getElementById('next-stage');
     const successSound = document.getElementById('success-sound');
     const errorSound = document.getElementById('error-sound');
     const clickSound = document.getElementById('click-sound');
@@ -16,18 +17,16 @@ async function checkAnswer() {
         // Fetch answers.json
         const response = await fetch('answers.json');
         const data = await response.json();
-        const userAnswers = data.users[userId] || [];
-        const correctAnswer = userAnswers[puzzleNumber - 1] || 'unknown';
+        const userAnswers = data.users[userId]?.answers || [];
+        const correctAnswer = userAnswers[puzzleNumber - 1]?.answer || 'unknown';
+        const nextStage = userAnswers[puzzleNumber - 1]?.next_stage || 'unknown';
 
         if (userInput === correctAnswer) {
             successModal.style.display = 'flex';
             errorModal.style.display = 'none';
+            nextStageSpan.textContent = nextStage;
             successSound.currentTime = 0;
             successSound.play();
-            // Notify bot of correct answer
-            if (window.Telegram?.WebApp) {
-                window.Telegram.WebApp.sendData(JSON.stringify({ puzzle_number: puzzleNumber }));
-            }
         } else {
             errorModal.style.display = 'flex';
             successModal.style.display = 'none';
