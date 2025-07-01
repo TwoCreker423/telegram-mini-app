@@ -112,6 +112,12 @@ body {
     transition: transform 0.3s ease;
     display: none; /* Hide all images by default */
     margin: 0 auto; /* Центрирование изображения */
+    user-select: none; /* Запрещаем выделение изображения */
+    -webkit-user-select: none; /* Для Safari */
+    -moz-user-select: none; /* Для Firefox */
+    -ms-user-select: none; /* Для Edge */
+    -webkit-user-drag: none; /* Запрещаем перетаскивание в WebKit */
+    pointer-events: none; /* Отключаем взаимодействие с изображением */
 }
 
 /* Эффект увеличения при наведении */
