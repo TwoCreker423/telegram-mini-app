@@ -4,9 +4,9 @@
       "username": "two_creker",
       "answers": [
         {
-          "answer": "пиво",
-          "next_stage": "чипсы",
-          "text": "хмель и солод"
+          "answer": "коньяк",
+          "next_stage": "шоколад",
+          "text": "конь плюс як"
         },
         {
           "answer": "ананас",
@@ -19,37 +19,6 @@
           "text": "восемь сторон"
         },
         {
-          "answer": "дождь",
-          "next_stage": "зонт",
-          "text": "капли с неба"
-        },
-        {
-          "answer": "десять",
-          "next_stage": "10",
-          "text": "число в масти"
-        }
-      ],
-      "progress": 5
-    },
-    "6074091907": {
-      "username": "sh4t0hin",
-      "answers": [
-        {
-          "answer": "коньяк",
-          "next_stage": "шоколад",
-          "text": "конь плюс як"
-        },
-        {
-          "answer": "банан",
-          "next_stage": "желтый",
-          "text": "тропический фрукт"
-        },
-        {
-          "answer": "пятиугольник",
-          "next_stage": "пять",
-          "text": "пять углов"
-        },
-        {
           "answer": "ветер",
           "next_stage": "куртка",
           "text": "движение воздуха"
@@ -58,37 +27,6 @@
           "answer": "десять",
           "next_stage": "10",
           "text": "число в масти"
-        }
-      ],
-      "progress": 1
-    },
-    "800860186": {
-      "username": "GGDudos",
-      "answers": [
-        {
-          "answer": "пиво",
-          "next_stage": "чипсы",
-          "text": "хмель и солод"
-        },
-        {
-          "answer": "ананас",
-          "next_stage": "коричневый",
-          "text": "экзотический вкус"
-        },
-        {
-          "answer": "треугольник",
-          "next_stage": "три",
-          "text": "три стороны"
-        },
-        {
-          "answer": "снег",
-          "next_stage": "шапка",
-          "text": "холодные хлопья"
-        },
-        {
-          "answer": "дама",
-          "next_stage": "3",
-          "text": "королева карт"
         }
       ],
       "progress": 1
