@@ -71,6 +71,42 @@
         }
       ],
       "progress": 1
+    },
+    "6304337840": {
+      "username": "Super_Smooth",
+      "answers": [
+        {
+          "answer": "пиво",
+          "next_stage": "чипсы",
+          "image": "static/picture/puzzle1_pic1.jpeg",
+          "text": "хмель и солод"
+        },
+        {
+          "answer": "банан",
+          "next_stage": "желтый",
+          "image": "static/picture/puzzle2_pic1.jpeg",
+          "text": "тропический фрукт"
+        },
+        {
+          "answer": "квадрат",
+          "next_stage": "четыре",
+          "image": "static/picture/puzzle3_pic1.jpeg",
+          "text": "четыре равные стороны"
+        },
+        {
+          "answer": "дождь",
+          "next_stage": "зонт",
+          "image": "static/picture/puzzle4_pic1.jpeg",
+          "text": "капли с неба"
+        },
+        {
+          "answer": "король",
+          "next_stage": "4",
+          "image": "static/picture/puzzle5_pic1.jpeg",
+          "text": "владыка карт"
+        }
+      ],
+      "progress": 1
     }
   },
   "stages": {
