@@ -3,22 +3,88 @@
     "376181030": {
       "username": "@User1",
       "answers": [
-        {"answer": "водка", "next_stage": "сало"},
-        {"answer": "малина", "next_stage": "фиолетовый"},
-        {"answer": "восмиугольник", "next_stage": "восемь"},
-        {"answer": "град", "next_stage": "каска"},
-        {"answer": "туз", "next_stage": "11"}
+        {
+          "answer": "водка",
+          "next_stage": "сало"
+        },
+        {
+          "answer": "малина",
+          "next_stage": "фиолетовый"
+        },
+        {
+          "answer": "восмиугольник",
+          "next_stage": "восемь"
+        },
+        {
+          "answer": "град",
+          "next_stage": "каска"
+        },
+        {
+          "answer": "туз",
+          "next_stage": "11"
+        }
       ],
       "progress": 1
     },
     "123456": {
       "username": "@User2",
       "answers": [
-        {"answer": "виски", "next_stage": "сигара"},
-        {"answer": "ананас", "next_stage": "коричневый"},
-        {"answer": "пятиугольник", "next_stage": "пять"},
-        {"answer": "ветер", "next_stage": "куртка"},
-        {"answer": "дама", "next_stage": "3"}
+        {
+          "answer": "виски",
+          "next_stage": "сигара"
+        },
+        {
+          "answer": "ананас",
+          "next_stage": "коричневый"
+        },
+        {
+          "answer": "пятиугольник",
+          "next_stage": "пять"
+        },
+        {
+          "answer": "ветер",
+          "next_stage": "куртка"
+        },
+        {
+          "answer": "дама",
+          "next_stage": "3"
+        }
+      ],
+      "progress": 1
+    },
+    "6074091907": {
+      "username": "sh4t0hin",
+      "answers": [
+        {
+          "answer": "вино",
+          "next_stage": "сыр",
+          "image": "static/picture/puzzle1_pic3.jpeg",
+          "text": "виноград и спирт"
+        },
+        {
+          "answer": "земляника",
+          "next_stage": "красный",
+          "image": "static/picture/puzzle2_pic3.jpeg",
+          "text": "лесная ягода"
+        },
+        {
+          "answer": "треугольник",
+          "next_stage": "три",
+          "image": "static/picture/puzzle3_pic3.jpeg",
+          "text": "три стороны"
+        },
+        {
+          "answer": "жара",
+          "next_stage": "майка",
+          "image": "static/picture/puzzle4_pic3.jpeg",
+          "text": "палящее солнце"
+        },
+        {
+          "answer": "валлет",
+          "next_stage": "2",
+          "image": "static/picture/puzzle5_pic3.jpeg",
+          "text": "младший вельможа"
+        }
       ],
       "progress": 1
     }
