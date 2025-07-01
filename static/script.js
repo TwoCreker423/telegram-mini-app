@@ -57,7 +57,8 @@ document.addEventListener('DOMContentLoaded', async () => {
     const userId = document.getElementById('user-id').value;
     const puzzleNumber = parseInt(document.getElementById('puzzle-number').value);
     const textBlock = document.querySelector('.text-block');
-    const puzzleImage = document.querySelector('.image-block img');
+    const imageBlock = document.querySelector('.image-block');
+    const allImages = imageBlock.querySelectorAll('img');
 
     try {
         const response = await fetch('answers.json');
@@ -65,13 +66,64 @@ document.addEventListener('DOMContentLoaded', async () => {
         const userAnswers = data.users[userId]?.answers || [];
         const puzzleData = userAnswers[puzzleNumber - 1] || {};
         
-        if (puzzleData.text && puzzleData.image) {
+        // Define answer-to-image mappings for each puzzle
+        const imageMappings = {
+            1: {
+                'пиво': 'puzzle1-pic1',
+                'водка': 'puzzle1-pic2',
+                'вино': 'puzzle1-pic3',
+                'коньяк': 'puzzle1-pic4',
+                'виски': 'puzzle1-pic5'
+            },
+            2: {
+                'банан': 'puzzle2-pic1',
+                'яблоко': 'puzzle2-pic2',
+                'земляника': 'puzzle2-pic3',
+                'малина': 'puzzle2-pic4',
+                'ананас': 'puzzle2-pic5'
+            },
+            3: {
+                'квадрат': 'puzzle3-pic1',
+                'круг': 'puzzle3-pic2',
+                'треугольник': 'puzzle3-pic3',
+                'пятиугольник': 'puzzle3-pic4',
+                'восмиугольник': 'puzzle3-pic5'
+            },
+            4: {
+                'дождь': 'puzzle4-pic1',
+                'снег': 'puzzle4-pic2',
+                'жара': 'puzzle4-pic3',
+                'град': 'puzzle4-pic4',
+                'ветер': 'puzzle4-pic5'
+            },
+            5: {
+                'король': 'puzzle5-pic1',
+                'туз': 'puzzle5-pic2',
+                'валлет': 'puzzle5-pic3',
+                'десять': 'puzzle5-pic4',
+                'дама': 'puzzle5-pic5'
+            }
+        };
+
+        // Hide all images
+        allImages.forEach(img => img.style.display = 'none');
+
+        // Show the correct image and set text
+        if (puzzleData.answer && puzzleData.text) {
+            const imageId = imageMappings[puzzleNumber][puzzleData.answer];
+            if (imageId) {
+                const targetImage = document.getElementById(imageId);
+                if (targetImage) {
+                    targetImage.style.display = 'block';
+                }
+            }
             textBlock.textContent = puzzleData.text;
-            puzzleImage.src = puzzleData.image;
-            puzzleImage.alt = `Puzzle ${puzzleNumber} Image`;
         } else {
             textBlock.textContent = `Это загадка ${puzzleNumber}. Введите правильный ответ для продолжения.`;
-            puzzleImage.src = 'static/picture/gold.jpg';
+            const fallbackImage = document.getElementById(`puzzle${puzzleNumber}-pic1`);
+            if (fallbackImage) {
+                fallbackImage.style.display = 'block';
+            }
         }
     } catch (error) {
         console.error('Error loading puzzle data:', error);
