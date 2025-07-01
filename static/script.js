@@ -167,6 +167,24 @@ document.addEventListener('DOMContentLoaded', async () => {
                 console.log(`Fallback to image: puzzle${puzzleNumber}-pic1`);
             }
         }
+
+        // Update download button href
+        if (puzzleData.answer && mappings[puzzleNumber][puzzleData.answer]) {
+            const mapping = mappings[puzzleNumber][puzzleData.answer];
+            const targetImage = document.getElementById(mapping.image);
+            const downloadLink = document.getElementById('download-image');
+            if (targetImage && downloadLink) {
+                downloadLink.href = targetImage.src;
+                console.log(`Download link updated to: ${targetImage.src}`);
+            }
+        } else {
+            const fallbackImage = document.getElementById(`puzzle${puzzleNumber}-pic1`);
+            const downloadLink = document.getElementById('download-image');
+            if (fallbackImage && downloadLink) {
+                downloadLink.href = fallbackImage.src;
+                console.log(`Download link fallback to: ${fallbackImage.src}`);
+            }
+        }
     } catch (error) {
         console.error('Error loading puzzle data:', error);
         // Fallback to default
