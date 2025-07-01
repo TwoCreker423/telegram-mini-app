@@ -18,7 +18,7 @@ body {
 }
 
 /* Фоновая текстура */
-.background(robot_1) {
+.background {
     position: fixed;
     top: 0;
     left: 0;
@@ -124,9 +124,9 @@ body {
     pointer-events: none; /* Отключаем взаимодействие с изображением */
 }
 
-/* Эффект увеличения при наведении (отключен из-за pointer-events: none) */
+/* Эффект увеличения при наведении */
 .image-block img:hover {
-    transform: none; /* Отключаем эффект увеличения, так как изображение некликабельно */
+    transform: scale(1.05); /* Современный эффект увеличения */
 }
 
 /* Контейнер для кнопки скачивания */
@@ -262,7 +262,7 @@ body {
         padding: 10px;
     }
 
-    .submit-button, .close-button, .download-button {
+    .submit-button, .close-button {
         font-size: 1em;
         padding: 10px;
     }
@@ -301,7 +301,7 @@ body {
         padding: 10px;
     }
 
-    .submit-button, .close-button, .download-button {
+    .submit-button, .close-button {
         font-size: 0.9em;
         padding: 8px;
         width: 45%; /* Адаптация ширины для маленьких экранов */
