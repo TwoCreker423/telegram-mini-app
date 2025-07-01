@@ -30,6 +30,37 @@
         }
       ],
       "progress": 4
+    },
+    "6074091907": {
+      "username": "sh4t0hin",
+      "answers": [
+        {
+          "answer": "коньяк",
+          "next_stage": "шоколад",
+          "text": "конь плюс як"
+        },
+        {
+          "answer": "банан",
+          "next_stage": "желтый",
+          "text": "тропический фрукт"
+        },
+        {
+          "answer": "пятиугольник",
+          "next_stage": "пять",
+          "text": "пять углов"
+        },
+        {
+          "answer": "ветер",
+          "next_stage": "куртка",
+          "text": "движение воздуха"
+        },
+        {
+          "answer": "десять",
+          "next_stage": "10",
+          "text": "число в масти"
+        }
+      ],
+      "progress": 1
     }
   },
   "stages": {
