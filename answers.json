@@ -61,6 +61,37 @@
         }
       ],
       "progress": 1
+    },
+    "800860186": {
+      "username": "GGDudos",
+      "answers": [
+        {
+          "answer": "пиво",
+          "next_stage": "чипсы",
+          "text": "хмель и солод"
+        },
+        {
+          "answer": "ананас",
+          "next_stage": "коричневый",
+          "text": "экзотический вкус"
+        },
+        {
+          "answer": "треугольник",
+          "next_stage": "три",
+          "text": "три стороны"
+        },
+        {
+          "answer": "снег",
+          "next_stage": "шапка",
+          "text": "холодные хлопья"
+        },
+        {
+          "answer": "дама",
+          "next_stage": "3",
+          "text": "королева карт"
+        }
+      ],
+      "progress": 1
     }
   },
   "stages": {
