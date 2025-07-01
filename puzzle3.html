@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Puzzle 3</title>
+    <link rel="stylesheet" href="static/styles.css">
+    <script src="https://telegram.org/js/telegram-web-app.js"></script>
+    <script src="static/script.js"></script>
+</head>
+<body>
+    <div class="background">
+        <img src="static/picture/theme_pic1.png" class="wave-image wave-1">
+        <img src="static/picture/theme_pic1.png" class="wave-image wave-2">
+        <img src="static/picture/theme_pic1.png" class="wave-image wave-3">
+        <img src="static/picture/theme_pic1.png" class="wave-image wave-4">
+        <img src="static/picture/theme_pic1.png" class="wave-image wave-5">
+    </div>
+    <div class="main-container">
+        <div class="text-block">
+            Это загадка 3. Введите правильный ответ для продолжения.
+        </div>
+        <div class="image-block">
+            <img src="static/picture/gold.jpg" alt="Puzzle 1 Image">
+        </div>
+        <div class="input-block">
+            <input type="text" id="user-input" placeholder="Введите ваш ответ">
+            <input type="hidden" id="user-id" value="unknown">
+            <input type="hidden" id="puzzle-number" value="1">
+        </div>
+        <button class="submit-button" onclick="checkAnswer()">Завершить задание</button>
+    </div>
+    <div id="success-modal" class="result-modal">
+        <div class="result-content">
+            Поздравляем! Ваш ответ правильный. Нажмите /next 3 в чате бота, чтобы перейти к следующей загадке.
+            <button class="close-button" onclick="closeModal('success-modal')">Закрыть</button>
+        </div>
+    </div>
+    <div id="error-modal" class="result-modal">
+        <div class="result-content">
+            Ответ неверный. Попробуйте снова!
+            <button class="close-button" onclick="closeModal('error-modal')">Закрыть</button>
+        </div>
+    </div>
+    <div id="welcome-modal" class="result-modal">
+        <div class="result-content">
+            Добро пожаловать, <span id="welcome-username">Гость</span>!
+            <button class="close-button" onclick="closeModal('welcome-modal')">Закрыть</button>
+        </div>
+    </div>
+    <audio id="success-sound" src="static/sound/stage_complete.mp3"></audio>
+    <audio id="error-sound" src="static/sound/wrong.mp3"></audio>
+    <audio id="click-sound" src="static/sound/click.mp3"></audio>
+    <script>
+        // Initialize Telegram Web App and set user data
+        if (window.Telegram?.WebApp) {
+            window.Telegram.WebApp.ready();
+            const user = window.Telegram.WebApp.initDataUnsafe.user || {};
+            document.getElementById('user-id').value = user.id || 'unknown';
+            document.getElementById('welcome-username').textContent = user.username ? `@${user.username}` : user.first_name || 'Гость';
+        } else {
+            console.error('Telegram Web App not available');
+            document.getElementById('welcome-username').textContent = 'Гость (Web App не инициализирован)';
+        }
+    </script>
+</body>
+</html>

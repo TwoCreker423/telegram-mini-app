@@ -1,6 +1,7 @@
 async function checkAnswer() {
     const userInput = document.getElementById('user-input').value.trim().toLowerCase();
     const userId = document.getElementById('user-id').value;
+    const puzzleNumber = parseInt(document.getElementById('puzzle-number').value);
     const successModal = document.getElementById('success-modal');
     const errorModal = document.getElementById('error-modal');
     const successSound = document.getElementById('success-sound');
@@ -15,13 +16,18 @@ async function checkAnswer() {
         // Fetch answers.json
         const response = await fetch('answers.json');
         const data = await response.json();
-        const correctAnswer = data.users[userId] || 'unknown';
+        const userAnswers = data.users[userId] || [];
+        const correctAnswer = userAnswers[puzzleNumber - 1] || 'unknown';
 
         if (userInput === correctAnswer) {
             successModal.style.display = 'flex';
             errorModal.style.display = 'none';
             successSound.currentTime = 0;
             successSound.play();
+            // Notify bot of correct answer
+            if (window.Telegram?.WebApp) {
+                window.Telegram.WebApp.sendData(JSON.stringify({ puzzle_number: puzzleNumber }));
+            }
         } else {
             errorModal.style.display = 'flex';
             successModal.style.display = 'none';
