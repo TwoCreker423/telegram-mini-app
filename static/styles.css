@@ -104,10 +104,12 @@ body {
 }
 
 .image-block img {
-    max-width: 100%;
-    height: auto;
-    border-radius: 10px;
-    display: none; /* Ensure all images are hidden by default */
+    max-width: 100%; /* Ограничение по ширине */
+    max-height: 50vh; /* Ограничение по высоте для предотвращения переполнения */
+    height: auto; /* Сохранение пропорций */
+    border: 3px solid #000080; /* Рамка в стиле 2000-х */
+    transition: transform 0.3s ease;
+    display: none;
 }
 
 /* Эффект увеличения при наведении */
