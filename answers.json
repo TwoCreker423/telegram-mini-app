@@ -1,56 +1,26 @@
 {
   "users": {
     "376181030": {
-      "username": "two_creker",
+      "username": "@User1",
       "answers": [
-        {
-          "answer": "пиво",
-          "next_stage": "чипсы"
-        },
-        {
-          "answer": "банан",
-          "next_stage": "желтый"
-        },
-        {
-          "answer": "квадрат",
-          "next_stage": "четыре"
-        },
-        {
-          "answer": "дождь",
-          "next_stage": "зонт"
-        },
-        {
-          "answer": "король",
-          "next_stage": "4"
-        }
+        {"answer": "водка", "next_stage": "сало"},
+        {"answer": "малина", "next_stage": "фиолетовый"},
+        {"answer": "восмиугольник", "next_stage": "восемь"},
+        {"answer": "град", "next_stage": "каска"},
+        {"answer": "туз", "next_stage": "11"}
       ],
-      "progress": 5
+      "progress": 1
     },
-    "6074091907": {
-      "username": "sh4t0hin",
+    "123456": {
+      "username": "@User2",
       "answers": [
-        {
-          "answer": "вино",
-          "next_stage": "сыр"
-        },
-        {
-          "answer": "земляника",
-          "next_stage": "красный"
-        },
-        {
-          "answer": "треугольник",
-          "next_stage": "три"
-        },
-        {
-          "answer": "жара",
-          "next_stage": "майка"
-        },
-        {
-          "answer": "валлет",
-          "next_stage": "2"
-        }
+        {"answer": "виски", "next_stage": "сигара"},
+        {"answer": "ананас", "next_stage": "коричневый"},
+        {"answer": "пятиугольник", "next_stage": "пять"},
+        {"answer": "ветер", "next_stage": "куртка"},
+        {"answer": "дама", "next_stage": "3"}
       ],
-      "progress": 5
+      "progress": 1
     }
   },
   "stages": {
@@ -58,23 +28,33 @@
       "answers": [
         {
           "answer": "пиво",
-          "next_stage": "чипсы"
+          "next_stage": "чипсы",
+          "image": "static/picture/puzzle1_pic1.jpeg",
+          "text": "хмель и солод"
         },
         {
           "answer": "водка",
-          "next_stage": "сало"
+          "next_stage": "сало",
+          "image": "static/picture/puzzle1_pic2.jpeg",
+          "text": "спирт и вода"
         },
         {
           "answer": "вино",
-          "next_stage": "сыр"
+          "next_stage": "сыр",
+          "image": "static/picture/puzzle1_pic3.jpeg",
+          "text": "виноград и спирт"
         },
         {
           "answer": "коньяк",
-          "next_stage": "шоколад"
+          "next_stage": "шоколад",
+          "image": "static/picture/puzzle1_pic4.jpeg",
+          "text": "конь плюс як"
         },
         {
           "answer": "виски",
-          "next_stage": "сигара"
+          "next_stage": "сигара",
+          "image": "static/picture/puzzle1_pic5.jpeg",
+          "text": "бочка и спирт"
         }
       ]
     },
@@ -82,23 +62,33 @@
       "answers": [
         {
           "answer": "банан",
-          "next_stage": "желтый"
+          "next_stage": "желтый",
+          "image": "static/picture/puzzle2_pic1.jpeg",
+          "text": "тропический фрукт"
         },
         {
           "answer": "яблоко",
-          "next_stage": "зеленый"
+          "next_stage": "зеленый",
+          "image": "static/picture/puzzle2_pic2.jpeg",
+          "text": "садовый плод"
         },
         {
           "answer": "земляника",
-          "next_stage": "красный"
+          "next_stage": "красный",
+          "image": "static/picture/puzzle2_pic3.jpeg",
+          "text": "лесная ягода"
         },
         {
           "answer": "малина",
-          "next_stage": "фиолетовый"
+          "next_stage": "фиолетовый",
+          "image": "static/picture/puzzle2_pic4.jpeg",
+          "text": "сладкая ягода"
         },
         {
           "answer": "ананас",
-          "next_stage": "коричневый"
+          "next_stage": "коричневый",
+          "image": "static/picture/puzzle2_pic5.jpeg",
+          "text": "экзотический вкус"
         }
       ]
     },
@@ -106,23 +96,33 @@
       "answers": [
         {
           "answer": "квадрат",
-          "next_stage": "четыре"
+          "next_stage": "четыре",
+          "image": "static/picture/puzzle3_pic1.jpeg",
+          "text": "четыре равные стороны"
         },
         {
           "answer": "круг",
-          "next_stage": "ноль"
+          "next_stage": "ноль",
+          "image": "static/picture/puzzle3_pic2.jpeg",
+          "text": "без углов"
         },
         {
           "answer": "треугольник",
-          "next_stage": "три"
+          "next_stage": "три",
+          "image": "static/picture/puzzle3_pic3.jpeg",
+          "text": "три стороны"
         },
         {
           "answer": "пятиугольник",
-          "next_stage": "пять"
+          "next_stage": "пять",
+          "image": "static/picture/puzzle3_pic4.jpeg",
+          "text": "пять углов"
         },
         {
           "answer": "восмиугольник",
-          "next_stage": "восемь"
+          "next_stage": "восемь",
+          "image": "static/picture/puzzle3_pic5.jpeg",
+          "text": "восемь сторон"
         }
       ]
     },
@@ -130,23 +130,33 @@
       "answers": [
         {
           "answer": "дождь",
-          "next_stage": "зонт"
+          "next_stage": "зонт",
+          "image": "static/picture/puzzle4_pic1.jpeg",
+          "text": "капли с неба"
         },
         {
           "answer": "снег",
-          "next_stage": "шапка"
+          "next_stage": "шапка",
+          "image": "static/picture/puzzle4_pic2.jpeg",
+          "text": "холодные хлопья"
         },
         {
           "answer": "жара",
-          "next_stage": "майка"
+          "next_stage": "майка",
+          "image": "static/picture/puzzle4_pic3.jpeg",
+          "text": "палящее солнце"
         },
         {
           "answer": "град",
-          "next_stage": "каска"
+          "next_stage": "каска",
+          "image": "static/picture/puzzle4_pic4.jpeg",
+          "text": "ледяные шарики"
         },
         {
           "answer": "ветер",
-          "next_stage": "куртка"
+          "next_stage": "куртка",
+          "image": "static/picture/puzzle4_pic5.jpeg",
+          "text": "движение воздуха"
         }
       ]
     },
@@ -154,23 +164,33 @@
       "answers": [
         {
           "answer": "король",
-          "next_stage": "4"
+          "next_stage": "4",
+          "image": "static/picture/puzzle5_pic1.jpeg",
+          "text": "владыка карт"
         },
         {
           "answer": "туз",
-          "next_stage": "11"
+          "next_stage": "11",
+          "image": "static/picture/puzzle5_pic2.jpeg",
+          "text": "старшая карта"
         },
         {
           "answer": "валлет",
-          "next_stage": "2"
+          "next_stage": "2",
+          "image": "static/picture/puzzle5_pic3.jpeg",
+          "text": "младший вельможа"
         },
         {
           "answer": "десять",
-          "next_stage": "10"
+          "next_stage": "10",
+          "image": "static/picture/puzzle5_pic4.jpeg",
+          "text": "число в масти"
         },
         {
           "answer": "дама",
-          "next_stage": "3"
+          "next_stage": "3",
+          "image": "static/picture/puzzle5_pic5.jpeg",
+          "text": "королева карт"
         }
       ]
     }

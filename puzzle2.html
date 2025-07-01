@@ -18,7 +18,7 @@
     </div>
     <div class="main-container">
         <div class="text-block">
-            Это загадка 2. Введите правильный ответ для продолжения.
+            Это загадка 1. Введите правильный ответ для продолжения.
         </div>
         <div class="image-block">
             <img src="static/picture/gold.jpg" alt="Puzzle 2 Image">
@@ -51,17 +51,5 @@
     <audio id="success-sound" src="static/sound/stage_complete.mp3"></audio>
     <audio id="error-sound" src="static/sound/wrong.mp3"></audio>
     <audio id="click-sound" src="static/sound/click.mp3"></audio>
-    <script>
-        // Initialize Telegram Web App and set user data
-        if (window.Telegram?.WebApp) {
-            window.Telegram.WebApp.ready();
-            const user = window.Telegram.WebApp.initDataUnsafe.user || {};
-            document.getElementById('user-id').value = user.id || 'unknown';
-            document.getElementById('welcome-username').textContent = user.username ? `@${user.username}` : user.first_name || 'Гость';
-        } else {
-            console.error('Telegram Web App not available');
-            document.getElementById('welcome-username').textContent = 'Гость (Web App не инициализирован)';
-        }
-    </script>
 </body>
 </html>
