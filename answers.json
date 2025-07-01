@@ -1,50 +1,151 @@
 {
   "users": {
+    "376181030": {
+      "username": "two_creker",
+      "answers": [
+        {
+          "answer": "пиво",
+          "next_stage": "чипсы"
+        },
+        {
+          "answer": "банан",
+          "next_stage": "желтый"
+        },
+        {
+          "answer": "квадрат",
+          "next_stage": "четыре"
+        },
+        {
+          "answer": "дождь",
+          "next_stage": "зонт"
+        },
+        {
+          "answer": "король",
+          "next_stage": "4"
+        }
+      ],
+      "progress": 1
+    }
   },
   "stages": {
     "puzzle1": {
       "answers": [
-        {"answer": "пиво", "next_stage": "чипсы"},
-        {"answer": "водка", "next_stage": "сало"},
-        {"answer": "вино", "next_stage": "сыр"},
-        {"answer": "коньяк", "next_stage": "шоколад"},
-        {"answer": "виски", "next_stage": "сигара"}
+        {
+          "answer": "пиво",
+          "next_stage": "чипсы"
+        },
+        {
+          "answer": "водка",
+          "next_stage": "сало"
+        },
+        {
+          "answer": "вино",
+          "next_stage": "сыр"
+        },
+        {
+          "answer": "коньяк",
+          "next_stage": "шоколад"
+        },
+        {
+          "answer": "виски",
+          "next_stage": "сигара"
+        }
       ]
     },
     "puzzle2": {
       "answers": [
-        {"answer": "банан", "next_stage": "желтый"},
-        {"answer": "яблоко", "next_stage": "зеленый"},
-        {"answer": "земляника", "next_stage": "красный"},
-        {"answer": "малина", "next_stage": "фиолетовый"},
-        {"answer": "ананас", "next_stage": "коричневый"}
+        {
+          "answer": "банан",
+          "next_stage": "желтый"
+        },
+        {
+          "answer": "яблоко",
+          "next_stage": "зеленый"
+        },
+        {
+          "answer": "земляника",
+          "next_stage": "красный"
+        },
+        {
+          "answer": "малина",
+          "next_stage": "фиолетовый"
+        },
+        {
+          "answer": "ананас",
+          "next_stage": "коричневый"
+        }
       ]
     },
     "puzzle3": {
       "answers": [
-        {"answer": "квадрат", "next_stage": "четыре"},
-        {"answer": "круг", "next_stage": "ноль"},
-        {"answer": "треугольник", "next_stage": "три"},
-        {"answer": "пятиугольник", "next_stage": "пять"},
-        {"answer": "восмиугольник", "next_stage": "восемь"}
+        {
+          "answer": "квадрат",
+          "next_stage": "четыре"
+        },
+        {
+          "answer": "круг",
+          "next_stage": "ноль"
+        },
+        {
+          "answer": "треугольник",
+          "next_stage": "три"
+        },
+        {
+          "answer": "пятиугольник",
+          "next_stage": "пять"
+        },
+        {
+          "answer": "восмиугольник",
+          "next_stage": "восемь"
+        }
       ]
     },
     "puzzle4": {
       "answers": [
-        {"answer": "дождь", "next_stage": "зонт"},
-        {"answer": "снег", "next_stage": "шапка"},
-        {"answer": "жара", "next_stage": "майка"},
-        {"answer": "град", "next_stage": "каска"},
-        {"answer": "ветер", "next_stage": "куртка"}
+        {
+          "answer": "дождь",
+          "next_stage": "зонт"
+        },
+        {
+          "answer": "снег",
+          "next_stage": "шапка"
+        },
+        {
+          "answer": "жара",
+          "next_stage": "майка"
+        },
+        {
+          "answer": "град",
+          "next_stage": "каска"
+        },
+        {
+          "answer": "ветер",
+          "next_stage": "куртка"
+        }
       ]
     },
     "puzzle5": {
       "answers": [
-        {"answer": "король", "next_stage": "4"},
-        {"answer": "туз", "next_stage": "11"},
-        {"answer": "валлет", "next_stage": "2"},
-        {"answer": "десять", "next_stage": "10"},
-        {"answer": "дама", "next_stage": "3"}
+        {
+          "answer": "король",
+          "next_stage": "4"
+        },
+        {
+          "answer": "туз",
+          "next_stage": "11"
+        },
+        {
+          "answer": "валлет",
+          "next_stage": "2"
+        },
+        {
+          "answer": "десять",
+          "next_stage": "10"
+        },
+        {
+          "answer": "дама",
+          "next_stage": "3"
+        }
       ]
     }
   }
