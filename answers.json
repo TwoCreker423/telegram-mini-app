@@ -1,5 +1,36 @@
 {
   "users": {
+    "376181030": {
+      "username": "two_creker",
+      "answers": [
+        {
+          "answer": "17.11.2008",
+          "next_stage": "ненавижу рыбу",
+          "text": "левый четыре мертвы"
+        },
+        {
+          "answer": "ананас",
+          "next_stage": "коричневый",
+          "text": "экзотический вкус"
+        },
+        {
+          "answer": "круг",
+          "next_stage": "ноль",
+          "text": "без углов"
+        },
+        {
+          "answer": "снег",
+          "next_stage": "шапка",
+          "text": "холодные хлопья"
+        },
+        {
+          "answer": "король",
+          "next_stage": "4",
+          "text": "владыка карт"
+        }
+      ],
+      "progress": 1
+    }
   },
   "stages": {
     "puzzle1": {
