@@ -85,11 +85,11 @@ document.addEventListener('DOMContentLoaded', async () => {
     // Define answer-to-image and answer-to-text mappings for each puzzle
     const mappings = {
         1: {
-            'пиво': { image: 'puzzle1-pic1', text: 'puzzle1-text1' },
-            'водка': { image: 'puzzle1-pic2', text: 'puzzle1-text2' },
-            'вино': { image: 'puzzle1-pic3', text: 'puzzle1-text3' },
-            'коньяк': { image: 'puzzle1-pic4', text: 'puzzle1-text4' },
-            'виски': { image: 'puzzle1-pic5', text: 'puzzle1-text5' }
+            '29.11.2012': { image: 'puzzle1-pic1', text: 'puzzle1-text1' },
+            '17.09.2013': { image: 'puzzle1-pic2', text: 'puzzle1-text2' },
+            '17.11.2008': { image: 'puzzle1-pic3', text: 'puzzle1-text3' },
+            '10.11.2009': { image: 'puzzle1-pic4', text: 'puzzle1-text4' },
+            '11.11.2011': { image: 'puzzle1-pic5', text: 'puzzle1-text5' }
         },
         2: {
             'банан': { image: 'puzzle2-pic1', text: 'puzzle2-text1' },
