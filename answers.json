@@ -61,6 +61,37 @@
         }
       ],
       "progress": 1
+    },
+    "452562480": {
+      "username": "and_you_can_never_make",
+      "answers": [
+        {
+          "answer": "17.09.2013",
+          "next_stage": "ты забываешь тысячу мелочей",
+          "text": "большая кража авто пять"
+        },
+        {
+          "answer": "4C БДГАС",
+          "next_stage": "асски",
+          "text": "шестнадцать"
+        },
+        {
+          "answer": "пятиугольник",
+          "next_stage": "пять",
+          "text": "пять углов"
+        },
+        {
+          "answer": "град",
+          "next_stage": "каска",
+          "text": "ледяные шарики"
+        },
+        {
+          "answer": "десять",
+          "next_stage": "10",
+          "text": "число в масти"
+        }
+      ],
+      "progress": 1
     }
   },
   "stages": {
