@@ -92,11 +92,11 @@ document.addEventListener('DOMContentLoaded', async () => {
             '11.11.2011': { image: 'puzzle1-pic5', text: 'puzzle1-text5' }
         },
         2: {
-            'банан': { image: 'puzzle2-pic1', text: 'puzzle2-text1' },
-            'яблоко': { image: 'puzzle2-pic2', text: 'puzzle2-text2' },
-            'земляника': { image: 'puzzle2-pic3', text: 'puzzle2-text3' },
-            'малина': { image: 'puzzle2-pic4', text: 'puzzle2-text4' },
-            'ананас': { image: 'puzzle2-pic5', text: 'puzzle2-text5' }
+            '2F СХКСЛ': { image: 'puzzle2-pic1', text: 'puzzle2-text1' },
+            '84 БХАКЛ': { image: 'puzzle2-pic2', text: 'puzzle2-text2' },
+            '173 СЛТСГ': { image: 'puzzle2-pic3', text: 'puzzle2-text3' },
+            '4C БДГАС': { image: 'puzzle2-pic4', text: 'puzzle2-text4' },
+            '3C БСТКГ': { image: 'puzzle2-pic5', text: 'puzzle2-text5' }
         },
         3: {
             'квадрат': { image: 'puzzle3-pic1', text: 'puzzle3-text1' },
