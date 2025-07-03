@@ -147,7 +147,7 @@ body {
     outline: none;
 }
 
-/* Кнопка */
+/* Кнопка Завершить задание */
 .submit-button {
     width: 25%; /* Одинаковая ширина с input-block */
     margin: 20px auto; /* Центрирование и отступы сверху/снизу */
@@ -164,6 +164,26 @@ body {
 .submit-button:hover {
     border: 3px inset #0000ff;
     background: linear-gradient(to bottom, #1e90ff, #000080);
+    transform: translateY(2px);
+}
+
+/* Кнопка Карта */
+.map-button {
+    width: 25%; /* Одинаковая ширина с submit-button */
+    margin: 10px auto; /* Центрирование и отступы сверху/снизу */
+    padding: 12px;
+    font-size: 1.1em;
+    background: linear-gradient(to bottom, #ff0000, #ff3333); /* Красный градиент */
+    color: white;
+    border: 3px outset #ff3333; /* Выпуклый эффект 2000-х */
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: block; /* Для корректного центрирования */
+}
+
+.map-button:hover {
+    border: 3px inset #ff3333;
+    background: linear-gradient(to bottom, #ff3333, #ff0000);
     transform: translateY(2px);
 }
 
@@ -230,7 +250,7 @@ body {
         padding: 10px;
     }
 
-    .submit-button, .close-button {
+    .submit-button, .map-button, .close-button {
         font-size: 1em;
         padding: 10px;
     }
@@ -253,7 +273,7 @@ body {
     .main-container {
         width: 95%;
         margin: 10px auto;
-        max-height: 80vh; /* Уменьшаем максимальную высоту для маленьких экранов */
+        max現状-height: 80vh; /* Уменьшаем максимальную высоту для маленьких экранов */
     }
 
     .text-block {
@@ -264,12 +284,12 @@ body {
         width: 95%; /* Адаптация ширины для маленьких экранов */
     }
 
-    .input-block input {
+    .hex-block input {
         font-size: 0.9em;
         padding: 10px;
     }
 
-    .submit-button, .close-button {
+    .submit-button, .map-button, .close-button {
         font-size: 0.9em;
         padding: 8px;
         width: 45%; /* Адаптация ширины для маленьких экранов */
