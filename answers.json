@@ -92,6 +92,37 @@
         }
       ],
       "progress": 1
+    },
+    "6304337840": {
+      "username": "Super_Smooth",
+      "answers": [
+        {
+          "answer": "17.11.2008",
+          "next_stage": "ненавижу рыбу",
+          "text": "левый четыре мертвы"
+        },
+        {
+          "answer": "4C БДГАС",
+          "next_stage": "асски",
+          "text": "шестнадцать"
+        },
+        {
+          "answer": "восмиугольник",
+          "next_stage": "восемь",
+          "text": "восемь сторон"
+        },
+        {
+          "answer": "ветер",
+          "next_stage": "куртка",
+          "text": "движение воздуха"
+        },
+        {
+          "answer": "дама",
+          "next_stage": "3",
+          "text": "королева карт"
+        }
+      ],
+      "progress": 1
     }
   },
   "stages": {
