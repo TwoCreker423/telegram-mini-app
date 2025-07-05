@@ -87,12 +87,23 @@ document.addEventListener('DOMContentLoaded', async () => {
         
         const activeAudio = audioElements.find(audio => audio.style.display === 'block');
         if (activeAudio && activeAudio.src) {
-            const link = document.createElement('a');
-            link.href = activeAudio.src;
-            link.download = 'audio_' + new Date().getTime() + '.mp3';
-            document.body.appendChild(link);
-            link.click();
-            document.body.removeChild(link);
+            // Предварительная загрузка
+            activeAudio.load();
+            
+            // Проверка iOS
+            if (/iP(hone|od|ad)/.test(navigator.userAgent)) {
+                window.open(activeAudio.src, '_blank');
+                alert('Нажмите "Поделиться" и выберите "Сохранить в файлы"');
+            } else {
+                const link = document.createElement('a');
+                link.href = activeAudio.src;
+                link.download = 'audio_' + new Date().getTime() + '.mp3';
+                document.body.appendChild(link);
+                link.click();
+                setTimeout(() => {
+                    document.body.removeChild(link);
+                }, 100);
+            }
         }
     });
 
