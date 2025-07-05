@@ -62,37 +62,6 @@
       ],
       "progress": 1
     },
-    "376181030": {
-      "username": "two_creker",
-      "answers": [
-        {
-          "answer": "10.11.2009",
-          "next_stage": "историю пишет победитель",
-          "text": "зов долга современная война два"
-        },
-        {
-          "answer": "84БХАКЛ",
-          "next_stage": "бинарный",
-          "text": "десять"
-        },
-        {
-          "answer": "восмиугольник",
-          "next_stage": "восемь",
-          "text": "восемь сторон"
-        },
-        {
-          "answer": "жара",
-          "next_stage": "майка",
-          "text": "палящее солнце"
-        },
-        {
-          "answer": "валлет",
-          "next_stage": "2",
-          "text": "младший вельможа"
-        }
-      ],
-      "progress": 3
-    },
     "6304337840": {
       "username": "Super_Smooth",
       "answers": [
@@ -123,6 +92,37 @@
         }
       ],
       "progress": 2
+    },
+    "376181030": {
+      "username": "two_creker",
+      "answers": [
+        {
+          "answer": "29.11.2012",
+          "next_stage": "это и есть безумие",
+          "text": "далеко плакать три"
+        },
+        {
+          "answer": "4C БДГАС",
+          "next_stage": "асски",
+          "text": "шестнадцать"
+        },
+        {
+          "answer": "круг",
+          "next_stage": "ноль",
+          "text": "без углов"
+        },
+        {
+          "answer": "жара",
+          "next_stage": "майка",
+          "text": "палящее солнце"
+        },
+        {
+          "answer": "король",
+          "next_stage": "4",
+          "text": "владыка карт"
+        }
+      ],
+      "progress": 1
     }
   },
   "stages": {
