@@ -92,18 +92,18 @@ document.addEventListener('DOMContentLoaded', async () => {
             '11.11.2011': { image: 'puzzle1-pic5', text: 'puzzle1-text5' }
         },
         2: {
-            '2F СХКСЛ': { image: 'puzzle2-pic1', text: 'puzzle2-text1' },
-            '84 БХАКЛ': { image: 'puzzle2-pic2', text: 'puzzle2-text2' },
-            '173 СЛТСГ': { image: 'puzzle2-pic3', text: 'puzzle2-text3' },
-            '4C БДГАС': { image: 'puzzle2-pic4', text: 'puzzle2-text4' },
-            '3C БСТКГ': { image: 'puzzle2-pic5', text: 'puzzle2-text5' }
+            '2f схксл': { image: 'puzzle2-pic1', text: 'puzzle2-text1' },
+            '84 бхакл': { image: 'puzzle2-pic2', text: 'puzzle2-text2' },
+            '173 слтсг': { image: 'puzzle2-pic3', text: 'puzzle2-text3' },
+            '4c бдгас': { image: 'puzzle2-pic4', text: 'puzzle2-text4' },
+            '3c бсткг': { image: 'puzzle2-pic5', text: 'puzzle2-text5' }
         },
         3: {
-            'квадрат': { image: 'puzzle3-pic1', text: 'puzzle3-text1' },
-            'круг': { image: 'puzzle3-pic2', text: 'puzzle3-text2' },
-            'треугольник': { image: 'puzzle3-pic3', text: 'puzzle3-text3' },
-            'пятиугольник': { image: 'puzzle3-pic4', text: 'puzzle3-text4' },
-            'восмиугольник': { image: 'puzzle3-pic5', text: 'puzzle3-text5' }
+            'квадрат': { image: 'puzzle3-pic1', text: 'puzzle3-text1', audio: 'puzzle3-audio1' },
+            'круг': { image: 'puzzle3-pic2', text: 'puzzle3-text2', audio: 'puzzle3-audio2' },
+            'треугольник': { image: 'puzzle3-pic3', text: 'puzzle3-text3', audio: 'puzzle3-audio3' },
+            'пятиугольник': { image: 'puzzle3-pic4', text: 'puzzle3-text4', audio: 'puzzle3-audio4' },
+            'восмиугольник': { image: 'puzzle3-pic5', text: 'puzzle3-text5', audio: 'puzzle3-audio5' }
         },
         4: {
             'дождь': { image: 'puzzle4-pic1', text: 'puzzle4-text1' },
