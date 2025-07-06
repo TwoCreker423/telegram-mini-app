@@ -121,64 +121,40 @@ document.addEventListener('DOMContentLoaded', async () => {
         }
     };
 
-    // Hide all text spans and images
-    allTextSpans.forEach(span => span.style.display = 'none');
-    allImages.forEach(img => img.style.display = 'none');
-
     try {
         const response = await fetch('answers.json');
-        if (!response.ok) {
-            throw new Error(`HTTP error! status: ${response.status}`);
-        }
+        if (!response.ok) throw new Error(`HTTP error! status: ${response.status}`);
+        
         const data = await response.json();
-        console.log(`Fetched answers.json for display: userId=${userId}, puzzleNumber=${puzzleNumber}`);
-
         const userAnswers = data.users[userId]?.answers || [];
         const puzzleData = userAnswers[puzzleNumber - 1] || {};
-        console.log(`User answers: ${JSON.stringify(userAnswers)}, puzzleData: ${JSON.stringify(puzzleData)}`);
 
-        // Show the correct text and image
         if (puzzleData.answer && mappings[puzzleNumber][puzzleData.answer]) {
             const mapping = mappings[puzzleNumber][puzzleData.answer];
             const targetText = document.getElementById(mapping.text);
             const targetImage = document.getElementById(mapping.image);
-            console.log(`Displaying answer=${puzzleData.answer}, textId=${mapping.text}, imageId=${mapping.image}`);
-            if (targetText) {
-                targetText.style.display = 'block';
-            } else {
-                console.warn(`Text element ${mapping.text} not found`);
-            }
-            if (targetImage) {
-                targetImage.style.display = 'block';
-            } else {
-                console.warn(`Image element ${mapping.image} not found`);
-            }
+            const targetAudio = mapping.audio ? document.getElementById(mapping.audio) : null;
+            
+            if (targetText) targetText.style.display = 'block';
+            if (targetImage) targetImage.style.display = 'block';
+            if (targetAudio) targetAudio.style.display = 'block';
         } else {
-            console.warn(`No valid answer or mapping for puzzleNumber=${puzzleNumber}, answer=${puzzleData.answer}`);
-            // Fallback to default
             const fallbackText = document.getElementById(`puzzle${puzzleNumber}-text1`);
             const fallbackImage = document.getElementById(`puzzle${puzzleNumber}-pic1`);
-            if (fallbackText) {
-                fallbackText.style.display = 'block';
-                console.log(`Fallback to text: puzzle${puzzleNumber}-text1`);
-            }
-            if (fallbackImage) {
-                fallbackImage.style.display = 'block';
-                console.log(`Fallback to image: puzzle${puzzleNumber}-pic1`);
-            }
+            const fallbackAudio = puzzleNumber === 3 ? document.getElementById('puzzle3-audio1') : null;
+            
+            if (fallbackText) fallbackText.style.display = 'block';
+            if (fallbackImage) fallbackImage.style.display = 'block';
+            if (fallbackAudio) fallbackAudio.style.display = 'block';
         }
     } catch (error) {
         console.error('Error loading puzzle data:', error);
-        // Fallback to default
         const fallbackText = document.getElementById(`puzzle${puzzleNumber}-text1`);
         const fallbackImage = document.getElementById(`puzzle${puzzleNumber}-pic1`);
-        if (fallbackText) {
-            fallbackText.style.display = 'block';
-            console.log(`Error fallback to text: puzzle${puzzleNumber}-text1`);
-        }
-        if (fallbackImage) {
-            fallbackImage.style.display = 'block';
-            console.log(`Error fallback to image: puzzle${puzzleNumber}-pic1`);
-        }
+        const fallbackAudio = puzzleNumber === 3 ? document.getElementById('puzzle3-audio1') : null;
+        
+        if (fallbackText) fallbackText.style.display = 'block';
+        if (fallbackImage) fallbackImage.style.display = 'block';
+        if (fallbackAudio) fallbackAudio.style.display = 'block';
     }
 });
