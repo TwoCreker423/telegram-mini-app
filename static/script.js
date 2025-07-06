@@ -53,6 +53,89 @@ function closeModal(modalId) {
     document.getElementById(modalId).style.display = 'none';
 }
 
+async function downloadAudioFile(audioId, fileName) {
+    try {
+        const audioElement = document.getElementById(audioId);
+        if (!audioElement) {
+            throw new Error('Audio element not found');
+        }
+
+        // Создаем индикатор загрузки
+        const loadingIndicator = document.createElement('div');
+        loadingIndicator.style.position = 'fixed';
+        loadingIndicator.style.top = '0';
+        loadingIndicator.style.left = '0';
+        loadingIndicator.style.width = '100%';
+        loadingIndicator.style.height = '3px';
+        loadingIndicator.style.backgroundColor = 'rgba(0,0,0,0.1)';
+        loadingIndicator.style.zIndex = '9999';
+        
+        const progressBar = document.createElement('div');
+        progressBar.style.height = '100%';
+        progressBar.style.width = '0%';
+        progressBar.style.backgroundColor = '#4CAF50';
+        progressBar.style.transition = 'width 0.3s';
+        loadingIndicator.appendChild(progressBar);
+        
+        document.body.appendChild(loadingIndicator);
+
+        // Получаем файл через fetch
+        const response = await fetch(audioElement.src);
+        if (!response.ok) {
+            throw new Error(`HTTP error! status: ${response.status}`);
+        }
+
+        const contentLength = response.headers.get('content-length');
+        const reader = response.body.getReader();
+        let receivedLength = 0;
+        const chunks = [];
+        
+        while(true) {
+            const {done, value} = await reader.read();
+            if (done) break;
+            
+            chunks.push(value);
+            receivedLength += value.length;
+            
+            // Обновляем индикатор прогресса
+            if (contentLength) {
+                const percentComplete = Math.round((receivedLength / contentLength) * 100);
+                progressBar.style.width = `${percentComplete}%`;
+            }
+        }
+
+        // Собираем все чанки в Blob
+        const blob = new Blob(chunks);
+        const blobUrl = URL.createObjectURL(blob);
+        
+        // Создаем ссылку для скачивания
+        const downloadLink = document.createElement('a');
+        downloadLink.href = blobUrl;
+        downloadLink.download = fileName;
+        downloadLink.style.display = 'none';
+        
+        // Добавляем в документ и эмулируем клик
+        document.body.appendChild(downloadLink);
+        downloadLink.click();
+        
+        // Убираем индикатор загрузки
+        progressBar.style.width = '100%';
+        setTimeout(() => {
+            document.body.removeChild(loadingIndicator);
+        }, 500);
+        
+        // Очистка
+        setTimeout(() => {
+            document.body.removeChild(downloadLink);
+            URL.revokeObjectURL(blobUrl);
+        }, 100);
+        
+    } catch (error) {
+        console.error('Download failed:', error);
+        alert('Не удалось скачать аудио. Пожалуйста, попробуйте позже.');
+    }
+}
+
 document.addEventListener('DOMContentLoaded', async () => {
     console.log('DOMContentLoaded fired');
     document.getElementById('success-modal').style.display = 'none';
@@ -166,7 +249,6 @@ document.addEventListener('DOMContentLoaded', async () => {
             clickSound.currentTime = 0;
             clickSound.play();
 
-            // Получаем текущее отображаемое аудио для puzzle3
             const currentPuzzleNumber = parseInt(document.getElementById('puzzle-number').value) || 3;
             try {
                 const response = await fetch('answers.json');
@@ -178,35 +260,29 @@ document.addEventListener('DOMContentLoaded', async () => {
                 const puzzleData = userAnswers[currentPuzzleNumber - 1] || {};
                 
                 let audioId = 'puzzle3-audio1'; // значение по умолчанию
+                let fileName = 'puzzle3_audio.mp3';
                 
                 if (puzzleData.answer) {
                     const audioMappings = {
                         3: {
-                            'квадрат': 'puzzle3-audio1',
-                            'круг': 'puzzle3-audio2',
-                            'треугольник': 'puzzle3-audio3',
-                            'пятиугольник': 'puzzle3-audio4',
-                            'восмиугольник': 'puzzle3-audio5'
+                            'квадрат': { id: 'puzzle3-audio1', name: 'квадрат.mp3' },
+                            'круг': { id: 'puzzle3-audio2', name: 'круг.mp3' },
+                            'треугольник': { id: 'puzzle3-audio3', name: 'треугольник.mp3' },
+                            'пятиугольник': { id: 'puzzle3-audio4', name: 'пятиугольник.mp3' },
+                            'восмиугольник': { id: 'puzzle3-audio5', name: 'восмиугольник.mp3' }
                         }
                     };
                     
                     if (audioMappings[currentPuzzleNumber] && audioMappings[currentPuzzleNumber][puzzleData.answer]) {
-                        audioId = audioMappings[currentPuzzleNumber][puzzleData.answer];
+                        audioId = audioMappings[currentPuzzleNumber][puzzleData.answer].id;
+                        fileName = audioMappings[currentPuzzleNumber][puzzleData.answer].name;
                     }
                 }
                 
-                const audioElement = document.getElementById(audioId);
-                if (audioElement) {
-                    // Создаем временную ссылку для скачивания
-                    const a = document.createElement('a');
-                    a.href = audioElement.src;
-                    a.download = `puzzle${currentPuzzleNumber}_audio.mp3`;
-                    document.body.appendChild(a);
-                    a.click();
-                    document.body.removeChild(a);
-                }
+                await downloadAudioFile(audioId, fileName);
             } catch (error) {
-                console.error('Error downloading audio:', error);
+                console.error('Error preparing audio download:', error);
+                alert('Ошибка при подготовке аудио к скачиванию');
             }
         });
     }
