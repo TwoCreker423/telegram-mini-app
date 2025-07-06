@@ -92,6 +92,37 @@
         }
       ],
       "progress": 3
+    },
+    "6304337840": {
+      "username": "Super_Smooth",
+      "answers": [
+        {
+          "answer": "29.11.2012",
+          "next_stage": "это и есть безумие",
+          "text": "далеко плакать три"
+        },
+        {
+          "answer": "2f схксл",
+          "next_stage": "кодировка",
+          "text": "шестнадцать"
+        },
+        {
+          "answer": "треугольник",
+          "next_stage": "три",
+          "text": "три стороны"
+        },
+        {
+          "answer": "дождь",
+          "next_stage": "зонт",
+          "text": "капли с неба"
+        },
+        {
+          "answer": "валлет",
+          "next_stage": "2",
+          "text": "младший вельможа"
+        }
+      ],
+      "progress": 1
     }
   },
   "stages": {
