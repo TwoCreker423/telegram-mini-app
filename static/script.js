@@ -9,17 +9,23 @@ async function checkAnswer() {
     const errorSound = document.getElementById('error-sound');
     const clickSound = document.getElementById('click-sound');
 
+    console.log(`checkAnswer: userId=${userId}, puzzleNumber=${puzzleNumber}, userInput=${userInput}`);
+
     clickSound.currentTime = 0;
     clickSound.play();
 
     try {
         const response = await fetch('answers.json');
-        if (!response.ok) throw new Error(`HTTP error! status: ${response.status}`);
-        
+        if (!response.ok) {
+            throw new Error(`HTTP error! status: ${response.status}`);
+        }
         const data = await response.json();
         const userAnswers = data.users[userId]?.answers || [];
+        console.log(`Fetched answers.json: userAnswers=${JSON.stringify(userAnswers)}`);
+
         const correctAnswer = userAnswers[puzzleNumber - 1]?.answer || 'unknown';
         const nextStage = userAnswers[puzzleNumber - 1]?.next_stage || 'unknown';
+        console.log(`Correct answer=${correctAnswer}, nextStage=${nextStage}`);
 
         if (userInput === correctAnswer) {
             successModal.style.display = 'flex';
@@ -48,6 +54,7 @@ function closeModal(modalId) {
 }
 
 document.addEventListener('DOMContentLoaded', async () => {
+    console.log('DOMContentLoaded fired');
     document.getElementById('success-modal').style.display = 'none';
     document.getElementById('error-modal').style.display = 'none';
     document.getElementById('welcome-modal').style.display = 'flex';
@@ -62,61 +69,20 @@ document.addEventListener('DOMContentLoaded', async () => {
     const imageBlock = document.querySelector('.image-block');
     const allTextSpans = textBlock.querySelectorAll('span');
     const allImages = imageBlock.querySelectorAll('img');
-    const downloadButton = document.getElementById('download-audio-button');
-    const audioElements = [
-        document.getElementById('puzzle3-audio1'),
-        document.getElementById('puzzle3-audio2'),
-        document.getElementById('puzzle3-audio3'),
-        document.getElementById('puzzle3-audio4'),
-        document.getElementById('puzzle3-audio5')
-    ];
 
-    // Hide all elements initially
-    allTextSpans.forEach(span => span.style.display = 'none');
-    allImages.forEach(img => img.style.display = 'none');
-    audioElements.forEach(audio => {
-        audio.style.display = 'none';
-        audio.pause();
-    });
-
-    // Set up download button
-    downloadButton.addEventListener('click', function() {
-        const clickSound = document.getElementById('click-sound');
-        clickSound.currentTime = 0;
-        clickSound.play();
-        
-        const activeAudio = audioElements.find(audio => audio.style.display === 'block');
-        if (activeAudio && activeAudio.src) {
-            // Предварительная загрузка
-            activeAudio.load();
-            
-            // Проверка iOS
-            if (/iP(hone|od|ad)/.test(navigator.userAgent)) {
-                window.open(activeAudio.src, '_blank');
-                alert('Нажмите "Поделиться" и выберите "Сохранить в файлы"');
-            } else {
-                const link = document.createElement('a');
-                link.href = activeAudio.src;
-                link.download = 'audio_' + new Date().getTime() + '.mp3';
-                document.body.appendChild(link);
-                link.click();
-                setTimeout(() => {
-                    document.body.removeChild(link);
-                }, 100);
-            }
-        }
-    });
-
-    // Telegram Web App initialization
+    // Ensure userId is set via Telegram Web App
     if (window.Telegram?.WebApp) {
         window.Telegram.WebApp.ready();
         const user = window.Telegram.WebApp.initDataUnsafe.user || {};
         userId = user.id ? String(user.id) : 'unknown';
         document.getElementById('user-id').value = userId;
-        document.getElementById('welcome-username').textContent = 
-            user.username ? `@${user.username}` : user.first_name || 'Гость';
+        document.getElementById('welcome-username').textContent = user.username ? `@${user.username}` : user.first_name || 'Гость';
+        console.log(`Telegram Web App: userId=${userId}, username=${user.username || user.first_name || 'Гость'}`);
+    } else {
+        console.warn('Telegram Web App not available, using fallback userId:', userId);
     }
 
+    // Define answer-to-image and answer-to-text mappings for each puzzle
     const mappings = {
         1: {
             '29.11.2012': { image: 'puzzle1-pic1', text: 'puzzle1-text1' },
@@ -126,18 +92,18 @@ document.addEventListener('DOMContentLoaded', async () => {
             '11.11.2011': { image: 'puzzle1-pic5', text: 'puzzle1-text5' }
         },
         2: {
-            '2f схксл': { image: 'puzzle2-pic1', text: 'puzzle2-text1' },
-            '84 бхакл': { image: 'puzzle2-pic2', text: 'puzzle2-text2' },
-            '173 слтсг': { image: 'puzzle2-pic3', text: 'puzzle2-text3' },
-            '4c бдгас': { image: 'puzzle2-pic4', text: 'puzzle2-text4' },
-            '3c бсткг': { image: 'puzzle2-pic5', text: 'puzzle2-text5' }
+            '2F СХКСЛ': { image: 'puzzle2-pic1', text: 'puzzle2-text1' },
+            '84 БХАКЛ': { image: 'puzzle2-pic2', text: 'puzzle2-text2' },
+            '173 СЛТСГ': { image: 'puzzle2-pic3', text: 'puzzle2-text3' },
+            '4C БДГАС': { image: 'puzzle2-pic4', text: 'puzzle2-text4' },
+            '3C БСТКГ': { image: 'puzzle2-pic5', text: 'puzzle2-text5' }
         },
         3: {
-            'квадрат': { image: 'puzzle3-pic1', text: 'puzzle3-text1', audio: 'puzzle3-audio1' },
-            'круг': { image: 'puzzle3-pic2', text: 'puzzle3-text2', audio: 'puzzle3-audio2' },
-            'треугольник': { image: 'puzzle3-pic3', text: 'puzzle3-text3', audio: 'puzzle3-audio3' },
-            'пятиугольник': { image: 'puzzle3-pic4', text: 'puzzle3-text4', audio: 'puzzle3-audio4' },
-            'восмиугольник': { image: 'puzzle3-pic5', text: 'puzzle3-text5', audio: 'puzzle3-audio5' }
+            'квадрат': { image: 'puzzle3-pic1', text: 'puzzle3-text1' },
+            'круг': { image: 'puzzle3-pic2', text: 'puzzle3-text2' },
+            'треугольник': { image: 'puzzle3-pic3', text: 'puzzle3-text3' },
+            'пятиугольник': { image: 'puzzle3-pic4', text: 'puzzle3-text4' },
+            'восмиугольник': { image: 'puzzle3-pic5', text: 'puzzle3-text5' }
         },
         4: {
             'дождь': { image: 'puzzle4-pic1', text: 'puzzle4-text1' },
@@ -155,40 +121,64 @@ document.addEventListener('DOMContentLoaded', async () => {
         }
     };
 
+    // Hide all text spans and images
+    allTextSpans.forEach(span => span.style.display = 'none');
+    allImages.forEach(img => img.style.display = 'none');
+
     try {
         const response = await fetch('answers.json');
-        if (!response.ok) throw new Error(`HTTP error! status: ${response.status}`);
-        
+        if (!response.ok) {
+            throw new Error(`HTTP error! status: ${response.status}`);
+        }
         const data = await response.json();
+        console.log(`Fetched answers.json for display: userId=${userId}, puzzleNumber=${puzzleNumber}`);
+
         const userAnswers = data.users[userId]?.answers || [];
         const puzzleData = userAnswers[puzzleNumber - 1] || {};
+        console.log(`User answers: ${JSON.stringify(userAnswers)}, puzzleData: ${JSON.stringify(puzzleData)}`);
 
+        // Show the correct text and image
         if (puzzleData.answer && mappings[puzzleNumber][puzzleData.answer]) {
             const mapping = mappings[puzzleNumber][puzzleData.answer];
             const targetText = document.getElementById(mapping.text);
             const targetImage = document.getElementById(mapping.image);
-            const targetAudio = mapping.audio ? document.getElementById(mapping.audio) : null;
-            
-            if (targetText) targetText.style.display = 'block';
-            if (targetImage) targetImage.style.display = 'block';
-            if (targetAudio) targetAudio.style.display = 'block';
+            console.log(`Displaying answer=${puzzleData.answer}, textId=${mapping.text}, imageId=${mapping.image}`);
+            if (targetText) {
+                targetText.style.display = 'block';
+            } else {
+                console.warn(`Text element ${mapping.text} not found`);
+            }
+            if (targetImage) {
+                targetImage.style.display = 'block';
+            } else {
+                console.warn(`Image element ${mapping.image} not found`);
+            }
         } else {
+            console.warn(`No valid answer or mapping for puzzleNumber=${puzzleNumber}, answer=${puzzleData.answer}`);
+            // Fallback to default
             const fallbackText = document.getElementById(`puzzle${puzzleNumber}-text1`);
             const fallbackImage = document.getElementById(`puzzle${puzzleNumber}-pic1`);
-            const fallbackAudio = puzzleNumber === 3 ? document.getElementById('puzzle3-audio1') : null;
-            
-            if (fallbackText) fallbackText.style.display = 'block';
-            if (fallbackImage) fallbackImage.style.display = 'block';
-            if (fallbackAudio) fallbackAudio.style.display = 'block';
+            if (fallbackText) {
+                fallbackText.style.display = 'block';
+                console.log(`Fallback to text: puzzle${puzzleNumber}-text1`);
+            }
+            if (fallbackImage) {
+                fallbackImage.style.display = 'block';
+                console.log(`Fallback to image: puzzle${puzzleNumber}-pic1`);
+            }
         }
     } catch (error) {
         console.error('Error loading puzzle data:', error);
+        // Fallback to default
         const fallbackText = document.getElementById(`puzzle${puzzleNumber}-text1`);
         const fallbackImage = document.getElementById(`puzzle${puzzleNumber}-pic1`);
-        const fallbackAudio = puzzleNumber === 3 ? document.getElementById('puzzle3-audio1') : null;
-        
-        if (fallbackText) fallbackText.style.display = 'block';
-        if (fallbackImage) fallbackImage.style.display = 'block';
-        if (fallbackAudio) fallbackAudio.style.display = 'block';
+        if (fallbackText) {
+            fallbackText.style.display = 'block';
+            console.log(`Error fallback to text: puzzle${puzzleNumber}-text1`);
+        }
+        if (fallbackImage) {
+            fallbackImage.style.display = 'block';
+            console.log(`Error fallback to image: puzzle${puzzleNumber}-pic1`);
+        }
     }
 });
