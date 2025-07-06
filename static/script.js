@@ -157,4 +157,57 @@ document.addEventListener('DOMContentLoaded', async () => {
         if (fallbackImage) fallbackImage.style.display = 'block';
         if (fallbackAudio) fallbackAudio.style.display = 'block';
     }
+
+    // Добавляем обработчик для кнопки скачивания аудио
+    const downloadAudioButton = document.getElementById('download-audio-button');
+    if (downloadAudioButton) {
+        downloadAudioButton.addEventListener('click', async () => {
+            const clickSound = document.getElementById('click-sound');
+            clickSound.currentTime = 0;
+            clickSound.play();
+
+            // Получаем текущее отображаемое аудио для puzzle3
+            const currentPuzzleNumber = parseInt(document.getElementById('puzzle-number').value) || 3;
+            try {
+                const response = await fetch('answers.json');
+                if (!response.ok) throw new Error(`HTTP error! status: ${response.status}`);
+                
+                const data = await response.json();
+                const currentUserId = document.getElementById('user-id').value;
+                const userAnswers = data.users[currentUserId]?.answers || [];
+                const puzzleData = userAnswers[currentPuzzleNumber - 1] || {};
+                
+                let audioId = 'puzzle3-audio1'; // значение по умолчанию
+                
+                if (puzzleData.answer) {
+                    const audioMappings = {
+                        3: {
+                            'квадрат': 'puzzle3-audio1',
+                            'круг': 'puzzle3-audio2',
+                            'треугольник': 'puzzle3-audio3',
+                            'пятиугольник': 'puzzle3-audio4',
+                            'восмиугольник': 'puzzle3-audio5'
+                        }
+                    };
+                    
+                    if (audioMappings[currentPuzzleNumber] && audioMappings[currentPuzzleNumber][puzzleData.answer]) {
+                        audioId = audioMappings[currentPuzzleNumber][puzzleData.answer];
+                    }
+                }
+                
+                const audioElement = document.getElementById(audioId);
+                if (audioElement) {
+                    // Создаем временную ссылку для скачивания
+                    const a = document.createElement('a');
+                    a.href = audioElement.src;
+                    a.download = `puzzle${currentPuzzleNumber}_audio.mp3`;
+                    document.body.appendChild(a);
+                    a.click();
+                    document.body.removeChild(a);
+                }
+            } catch (error) {
+                console.error('Error downloading audio:', error);
+            }
+        });
+    }
 });
